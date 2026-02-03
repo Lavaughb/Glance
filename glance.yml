@@ -1,0 +1,88 @@
+# Glance Dashboard - 2026 Home Lab Command Center
+server:
+  port: 8080
+  proxied: true 
+
+pages:
+  - name: Home
+    width: slim
+    hide-desktop-navigation: true
+    center-vertically: true
+    columns:
+      - size: full
+        widgets:
+          - type: search
+            autofocus: true
+            placeholder: "Search the matrix..."
+
+          # Infrastructure Monitoring - The "Heartbeat"
+          - type: monitor
+            title: Core Infrastructure
+            cache: 1m
+            sites:
+              - title: Proxmox Host
+                url: "https://192.168.86.100:8006"
+                icon: si:proxmox
+              - title: Nginx Proxy Manager
+                url: "http://192.168.86.52:81"
+                icon: si:nginx
+              - title: Pi-hole
+                url: "http://192.168.86.54/admin"
+                icon: si:pihole
+              - title: Home Assistant
+                url: "http://192.168.86.55:8123"
+                icon: si:homeassistant
+              - title: TwinGate
+                url: "https://lavaughbrown1.twingate.com"
+                icon: si:twingate
+
+          # Media Pipeline - Plex & The Arrs
+          - type: monitor
+            title: Media Pipeline
+            cache: 2m
+            sites:
+              - title: Plex Media Server
+                url: "http://192.168.86.200:32400/identity"
+                icon: si:plex
+              - title: qBittorrent
+                url: "http://192.168.86.200:8080"
+                icon: si:qbittorrent
+              - title: Radarr
+                url: "http://192.168.86.200:7878"
+                icon: si:radarr
+              - title: Sonarr
+                url: "http://192.168.86.200:8989"
+                icon: si:sonarr
+              - title: Prowlarr
+                url: "http://192.168.86.200:9696"
+                icon: si:prowlarr
+
+          # Bookmarks - Your "Chrome Tab Killers"
+          - type: bookmarks
+            groups:
+              - title: Daily Drivers
+                links:
+                  - title: Gmail
+                    url: https://mail.google.com/
+                    icon: si:gmail
+                  - title: YouTube
+                    url: https://youtube.com
+                    icon: si:youtube
+                  - title: GitHub
+                    url: https://github.com/Lavaughb
+                    icon: si:github
+                  - title: Reddit
+                    url: https://www.reddit.com/
+                    icon: si:reddit
+
+              - title: AI Agents
+                links:
+                  - title: Gemini
+                    url: https://gemini.google.com
+                    icon: si:googlegemini
+                  - title: Claude
+                    url: https://claude.ai
+                    icon: si:anthropic
+                  - title: ChatGPT
+                    url: https://chatgpt.com
+                    icon: si:openai
