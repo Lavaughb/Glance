@@ -1,4 +1,4 @@
-# Glance Dashboard - 2026 Home Lab Command Center
+# Glance Dashboard - Icon Fix & VM Port Update
 server:
   port: 8080
   proxied: true 
@@ -15,7 +15,7 @@ pages:
             autofocus: true
             placeholder: "Search the matrix..."
 
-          # Infrastructure Monitoring - The "Heartbeat"
+          # Infrastructure Monitoring
           - type: monitor
             title: Core Infrastructure
             cache: 1m
@@ -23,20 +23,21 @@ pages:
               - title: Proxmox Host
                 url: "https://192.168.86.100:8006"
                 icon: si:proxmox
+              - title: Home Assistant
+                url: "http://192.168.86.217:8123" # Verified Port
+                icon: si:homeassistant
               - title: Nginx Proxy Manager
                 url: "http://192.168.86.52:81"
                 icon: si:nginx
               - title: Pi-hole
                 url: "http://192.168.86.54/admin"
                 icon: si:pihole
-              - title: Home Assistant
-                url: "http://192.168.86.55:8123"
-                icon: si:homeassistant
               - title: TwinGate
+                # Using the selfh.st icon with auto-invert for better visibility
                 url: "https://lavaughbrown1.twingate.com"
-                icon: si:twingate
+                icon: auto-invert sh:twingate 
 
-          # Media Pipeline - Plex & The Arrs
+          # Media Pipeline
           - type: monitor
             title: Media Pipeline
             cache: 2m
@@ -54,10 +55,11 @@ pages:
                 url: "http://192.168.86.200:8989"
                 icon: si:sonarr
               - title: Prowlarr
+                # Prowlarr is often missing in Simple Icons, sh: always has it
                 url: "http://192.168.86.200:9696"
-                icon: si:prowlarr
+                icon: sh:prowlarr
 
-          # Bookmarks - Your "Chrome Tab Killers"
+          # Bookmarks
           - type: bookmarks
             groups:
               - title: Daily Drivers
