@@ -39,7 +39,7 @@ pages:
               # Media
               - title: Overseerr
                 url: "http://192.168.86.200:5055"
-                icon: si:overseerr
+                icon: sh:overseerr
               - title: Plex
                 url: "http://192.168.86.200:32400/identity"
                 icon: si:plex
@@ -54,7 +54,7 @@ pages:
                 icon: si:sonarr
               - title: Prowlarr
                 url: "http://192.168.86.200:9696"
-                icon: si:prowlarr
+                icon: sh:prowlarr
 
           # Quick links
           - type: bookmarks
@@ -97,7 +97,7 @@ pages:
             sites:
               - title: Overseerr
                 url: "http://192.168.86.200:5055"
-                icon: si:overseerr
+                icon: sh:overseerr
               - title: Plex
                 url: "http://192.168.86.200:32400/identity"
                 icon: si:plex
@@ -112,7 +112,7 @@ pages:
                 icon: si:sonarr
               - title: Prowlarr
                 url: "http://192.168.86.200:9696"
-                icon: si:prowlarr
+                icon: sh:prowlarr
 
           - type: bookmarks
             groups:
@@ -121,7 +121,7 @@ pages:
                 links:
                   - title: Overseerr
                     url: "http://192.168.86.200:5055"
-                    icon: si:overseerr
+                    icon: sh:overseerr
                     description: Request movies & shows
                   - title: Plex
                     url: "http://192.168.86.200:32400/web"
@@ -137,36 +137,41 @@ pages:
                     description: TV show management
                   - title: Prowlarr
                     url: "http://192.168.86.200:9696"
-                    icon: si:prowlarr
+                    icon: sh:prowlarr
                     description: Indexer management
                   - title: qBittorrent
                     url: "http://192.168.86.200:8080"
                     icon: si:qbittorrent
                     description: Download client
 
-      # Main content: trailers feed + movie/TV news
+      # Main content: trailers + news
       - size: full
         widgets:
-          # YouTube trailer channels — replace channel IDs with your own picks:
-          #   Find a channel ID: go to channel page → About → Share → Copy channel ID
           - type: videos
-            title: Trailers & Reviews
+            title: Latest Trailers
             style: grid-cards
             collapse-after: 6
             include-shorts: false
             channels:
-              - UCi8e0iOVk1fEOogdfu4YgfA  # Movieclips Trailers
-              - UCzWQYUVCpZqtN93H8RR44Qw  # Screen Junkies
+              - UCjmJDM5pRKbUlVIzDYYWb6g  # Warner Bros. Pictures
+              - UCq0OueAsdxH6b8nyAspwViw  # Universal Pictures
+              - UCz1GPotHecuLngiLuY739QQ  # Rotten Tomatoes
 
           - type: rss
             title: Movie & TV News
             style: horizontal-cards
-            limit: 12
+            limit: 16
             collapse-after: 6
             feeds:
+              - url: https://variety.com/v/film/feed/
+                title: Variety Film
+                limit: 5
+              - url: https://collider.com/feed/
+                title: Collider
+                limit: 5
               - url: https://www.reddit.com/r/movies.rss
                 title: r/movies
-                limit: 6
+                limit: 3
               - url: https://www.reddit.com/r/television.rss
                 title: r/television
-                limit: 6
+                limit: 3
