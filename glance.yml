@@ -15,6 +15,13 @@ pages:
     columns:
       - size: full
         widgets:
+          # Change timezone to match your location
+          - type: clock
+            hour-format: 12h
+            timezones:
+              - timezone: America/New_York
+                label: ""
+
           # All services in one centralised status box
           - type: monitor
             title: All Services
@@ -59,6 +66,12 @@ pages:
           # Quick links
           - type: bookmarks
             groups:
+              - title: My Site
+                links:
+                  - title: lavaugh.com
+                    url: https://lavaugh.com
+                    icon: si:googlechrome
+                    description: Personal site
               - title: Daily Drivers
                 links:
                   - title: Gmail
@@ -84,6 +97,96 @@ pages:
                   - title: ChatGPT
                     url: https://chatgpt.com
                     icon: si:openai
+
+  # ─── INFRASTRUCTURE ──────────────────────────────────────────────────────────
+  - name: Infrastructure
+    columns:
+      # Left sidebar: infra services only + launch links
+      - size: small
+        widgets:
+          - type: monitor
+            title: Core Services
+            cache: 1m
+            sites:
+              - title: Proxmox
+                url: "https://192.168.86.100:8006"
+                icon: si:proxmox
+              - title: Home Assistant
+                url: "http://192.168.86.217:8123"
+                icon: si:homeassistant
+              - title: Nginx Proxy Manager
+                url: "http://192.168.86.52:81"
+                icon: si:nginx
+              - title: Pi-hole
+                url: "http://192.168.86.54/admin"
+                icon: si:pihole
+              - title: TwinGate
+                url: "https://lavaughbrown1.twingate.com"
+                icon: auto-invert di:twingate
+
+          - type: bookmarks
+            groups:
+              - title: Manage
+                color: 0 90 45
+                links:
+                  - title: Proxmox
+                    url: "https://192.168.86.100:8006"
+                    icon: si:proxmox
+                    description: Hypervisor console
+                  - title: Home Assistant
+                    url: "http://192.168.86.217:8123"
+                    icon: si:homeassistant
+                    description: Home automation
+                  - title: Nginx Proxy Manager
+                    url: "http://192.168.86.52:81"
+                    icon: si:nginx
+                    description: Reverse proxy & SSL
+                  - title: Pi-hole
+                    url: "http://192.168.86.54/admin"
+                    icon: si:pihole
+                    description: DNS & ad blocking
+                  - title: TwinGate
+                    url: "https://lavaughbrown1.twingate.com"
+                    icon: auto-invert di:twingate
+                    description: Remote access
+
+      # Main content: software update tracking + community feeds
+      - size: full
+        widgets:
+          # Know when your self-hosted software has updates
+          - type: releases
+            title: Software Updates
+            show-source-icon: true
+            collapse-after: 8
+            repositories:
+              - home-assistant/core
+              - NginxProxyManager/nginx-proxy-manager
+              - pi-hole/pi-hole
+              - Radarr/Radarr
+              - Sonarr/Sonarr
+              - Prowlarr/Prowlarr
+              - sct/overseerr
+              - qbittorrent/qBittorrent
+              - glanceapp/glance
+
+          - type: rss
+            title: Homelab Community
+            style: horizontal-cards
+            limit: 16
+            collapse-after: 6
+            feeds:
+              - url: https://www.reddit.com/r/homelab.rss
+                title: r/homelab
+                limit: 5
+              - url: https://www.reddit.com/r/selfhosted.rss
+                title: r/selfhosted
+                limit: 5
+              - url: https://www.reddit.com/r/Proxmox.rss
+                title: r/Proxmox
+                limit: 3
+              - url: https://www.reddit.com/r/PleX.rss
+                title: r/Plex
+                limit: 3
 
   # ─── MEDIA ───────────────────────────────────────────────────────────────────
   - name: Media
