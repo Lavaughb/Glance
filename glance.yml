@@ -3,9 +3,9 @@ server:
   proxied: true
 
 theme:
-  background-color: 0 30 8
-  primary-color: 0 75 55
-  contrast-multiplier: 1.1
+  background-color: 0 15 4
+  primary-color: 0 90 45
+  contrast-multiplier: 1.2
 
 pages:
   # ─── HOME ────────────────────────────────────────────────────────────────────
@@ -15,10 +15,6 @@ pages:
     columns:
       - size: full
         widgets:
-          - type: search
-            autofocus: true
-            placeholder: "Search the matrix..."
-
           # All services in one centralised status box
           - type: monitor
             title: All Services
@@ -39,8 +35,11 @@ pages:
                 icon: si:pihole
               - title: TwinGate
                 url: "https://lavaughbrown1.twingate.com"
-                icon: di:twingate
+                icon: auto-invert di:twingate
               # Media
+              - title: Overseerr
+                url: "http://192.168.86.200:5055"
+                icon: si:overseerr
               - title: Plex
                 url: "http://192.168.86.200:32400/identity"
                 icon: si:plex
@@ -55,7 +54,7 @@ pages:
                 icon: si:sonarr
               - title: Prowlarr
                 url: "http://192.168.86.200:9696"
-                icon: sh:prowlarr
+                icon: si:prowlarr
 
           # Quick links
           - type: bookmarks
@@ -76,12 +75,12 @@ pages:
                     icon: si:reddit
               - title: AI Agents
                 links:
-                  - title: Gemini
-                    url: https://gemini.google.com
-                    icon: si:googlegemini
                   - title: Claude
                     url: https://claude.ai
                     icon: si:anthropic
+                  - title: Gemini
+                    url: https://gemini.google.com
+                    icon: si:googlegemini
                   - title: ChatGPT
                     url: https://chatgpt.com
                     icon: si:openai
@@ -96,6 +95,9 @@ pages:
             title: Media Services
             cache: 1m
             sites:
+              - title: Overseerr
+                url: "http://192.168.86.200:5055"
+                icon: si:overseerr
               - title: Plex
                 url: "http://192.168.86.200:32400/identity"
                 icon: si:plex
@@ -110,13 +112,17 @@ pages:
                 icon: si:sonarr
               - title: Prowlarr
                 url: "http://192.168.86.200:9696"
-                icon: sh:prowlarr
+                icon: si:prowlarr
 
           - type: bookmarks
             groups:
               - title: Launch
-                color: 0 75 55
+                color: 0 90 45
                 links:
+                  - title: Overseerr
+                    url: "http://192.168.86.200:5055"
+                    icon: si:overseerr
+                    description: Request movies & shows
                   - title: Plex
                     url: "http://192.168.86.200:32400/web"
                     icon: si:plex
@@ -131,7 +137,7 @@ pages:
                     description: TV show management
                   - title: Prowlarr
                     url: "http://192.168.86.200:9696"
-                    icon: sh:prowlarr
+                    icon: si:prowlarr
                     description: Indexer management
                   - title: qBittorrent
                     url: "http://192.168.86.200:8080"
@@ -142,7 +148,7 @@ pages:
       - size: full
         widgets:
           # YouTube trailer channels — replace channel IDs with your own picks:
-          #   Find a channel ID at: youtube.com/@ChannelName → About → Share → Copy channel ID
+          #   Find a channel ID: go to channel page → About → Share → Copy channel ID
           - type: videos
             title: Trailers & Reviews
             style: grid-cards
